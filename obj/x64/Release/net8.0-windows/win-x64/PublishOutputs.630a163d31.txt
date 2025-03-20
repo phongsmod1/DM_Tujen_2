@@ -1,0 +1,13 @@
+D:\VSrepos\DM_Tujen_2\bin\Release\net8.0-windows\publish\DM_Tujen_2.pdb
+D:\VSrepos\DM_Tujen_2\bin\Release\net8.0-windows\publish\stash.png
+D:\VSrepos\DM_Tujen_2\bin\Release\net8.0-windows\publish\stashface.png
+D:\VSrepos\DM_Tujen_2\bin\Release\net8.0-windows\publish\tujenface.png
+D:\VSrepos\DM_Tujen_2\bin\Release\net8.0-windows\publish\tujenname.png
+D:\VSrepos\DM_Tujen_2\bin\Release\net8.0-windows\publish\D3DCompiler_47_cor3.dll
+D:\VSrepos\DM_Tujen_2\bin\Release\net8.0-windows\publish\PenImc_cor3.dll
+D:\VSrepos\DM_Tujen_2\bin\Release\net8.0-windows\publish\PresentationNative_cor3.dll
+D:\VSrepos\DM_Tujen_2\bin\Release\net8.0-windows\publish\vcruntime140_cor3.dll
+D:\VSrepos\DM_Tujen_2\bin\Release\net8.0-windows\publish\wpfgfx_cor3.dll
+D:\VSrepos\DM_Tujen_2\bin\Release\net8.0-windows\publish\OpenCvSharpExtern.dll
+D:\VSrepos\DM_Tujen_2\bin\Release\net8.0-windows\publish\opencv_videoio_ffmpeg4100_64.dll
+D:\VSrepos\DM_Tujen_2\bin\Release\net8.0-windows\publish\DM_Tujen_2.exe

@@ -1,0 +1,6 @@
+D:\VSrepos\DM_Tujen_2\obj\Debug\net8.0-windows\DM_Tujen.Form1.resources
+D:\VSrepos\DM_Tujen_2\obj\Debug\net8.0-windows\DM_Tujen_2.csproj.GenerateResource.cache
+D:\VSrepos\DM_Tujen_2\obj\Debug\net8.0-windows\DM_Tujen_2.GeneratedMSBuildEditorConfig.editorconfig
+D:\VSrepos\DM_Tujen_2\obj\Debug\net8.0-windows\DM_Tujen_2.AssemblyInfoInputs.cache
+D:\VSrepos\DM_Tujen_2\obj\Debug\net8.0-windows\DM_Tujen_2.AssemblyInfo.cs
+D:\VSrepos\DM_Tujen_2\obj\Debug\net8.0-windows\DM_Tujen_2.csproj.CoreCompileInputs.cache

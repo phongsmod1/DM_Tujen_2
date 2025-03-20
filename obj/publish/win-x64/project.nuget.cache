@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "dgSpecHash": "oasjni2bJ5Q=",
+  "success": true,
+  "projectFilePath": "D:\\VSrepos\\DM_Tujen_2\\DM_Tujen_2.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\phong\\.nuget\\packages\\microsoft.net.illink.tasks\\8.0.14\\microsoft.net.illink.tasks.8.0.14.nupkg.sha512",
+    "C:\\Users\\phong\\.nuget\\packages\\microsoft.win32.systemevents\\8.0.0\\microsoft.win32.systemevents.8.0.0.nupkg.sha512",
+    "C:\\Users\\phong\\.nuget\\packages\\opencvsharp4\\4.10.0.20241108\\opencvsharp4.4.10.0.20241108.nupkg.sha512",
+    "C:\\Users\\phong\\.nuget\\packages\\opencvsharp4.extensions\\4.10.0.20241108\\opencvsharp4.extensions.4.10.0.20241108.nupkg.sha512",
+    "C:\\Users\\phong\\.nuget\\packages\\opencvsharp4.runtime.win\\4.10.0.20241108\\opencvsharp4.runtime.win.4.10.0.20241108.nupkg.sha512",
+    "C:\\Users\\phong\\.nuget\\packages\\opencvsharp4.windows\\4.10.0.20241108\\opencvsharp4.windows.4.10.0.20241108.nupkg.sha512",
+    "C:\\Users\\phong\\.nuget\\packages\\system.drawing.common\\8.0.0\\system.drawing.common.8.0.0.nupkg.sha512",
+    "C:\\Users\\phong\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",
+    "C:\\Users\\phong\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\phong\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\8.0.14\\microsoft.netcore.app.runtime.win-x64.8.0.14.nupkg.sha512",
+    "C:\\Users\\phong\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\8.0.14\\microsoft.windowsdesktop.app.runtime.win-x64.8.0.14.nupkg.sha512",
+    "C:\\Users\\phong\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\8.0.14\\microsoft.aspnetcore.app.runtime.win-x64.8.0.14.nupkg.sha512"
+  ],
+  "logs": []
+}
