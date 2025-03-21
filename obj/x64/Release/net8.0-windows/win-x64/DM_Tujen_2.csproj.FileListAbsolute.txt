@@ -483,3 +483,4 @@ D:\VSrepos\DM_Tujen_2\bin\x64\Release\net8.0-windows\win-x64\zh-Hant\UIAutomatio
 D:\VSrepos\DM_Tujen_2\bin\x64\Release\net8.0-windows\win-x64\zh-Hant\UIAutomationTypes.resources.dll
 D:\VSrepos\DM_Tujen_2\bin\x64\Release\net8.0-windows\win-x64\zh-Hant\WindowsBase.resources.dll
 D:\VSrepos\DM_Tujen_2\bin\x64\Release\net8.0-windows\win-x64\zh-Hant\WindowsFormsIntegration.resources.dll
+D:\VSrepos\DM_Tujen_2\obj\x64\Release\net8.0-windows\win-x64\DM_Tujen_2.sourcelink.json

@@ -26,3 +26,4 @@ D:\VSrepos\DM_Tujen_2\obj\x64\Debug\net8.0-windows\refint\DM_Tujen_2.dll
 D:\VSrepos\DM_Tujen_2\obj\x64\Debug\net8.0-windows\DM_Tujen_2.pdb
 D:\VSrepos\DM_Tujen_2\obj\x64\Debug\net8.0-windows\DM_Tujen_2.genruntimeconfig.cache
 D:\VSrepos\DM_Tujen_2\obj\x64\Debug\net8.0-windows\ref\DM_Tujen_2.dll
+D:\VSrepos\DM_Tujen_2\obj\x64\Debug\net8.0-windows\DM_Tujen_2.sourcelink.json

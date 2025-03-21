@@ -85,6 +85,8 @@ namespace DM_Tujen
                 {
                     Whitelist.list.Remove(listBox1.SelectedItem.ToString()); // Xóa item khỏi danh sách
                     listBox1.Items.Remove(listBox1.SelectedItem); // Xóa item được chọn
+                    Whitelist.SaveToFile(); // 🔥 Lưu danh sách vào file ngay lập tức
+                    UpdateListBox(); // Cập nhật ListBox
                 }
             }
         }

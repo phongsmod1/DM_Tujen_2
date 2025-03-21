@@ -35,17 +35,16 @@ public class KeyStop
         {
             if (GetAsyncKeyState(0x56) < 0) // 0x56 là phím 'V'
             {
-                stopRequested = true;
-                keybd_event(VK_CONTROL, 0, KEYEVENTF_KEYUP, 0);               
+                stopAndCtrlUp();
             }
             Thread.Sleep(50);
         }
     }
 
-    public static void cUp()
+    public static void stopAndCtrlUp()
     {
         stopRequested = true;
-        keybd_event(VK_C, 0, KEYEVENTF_KEYUP, 0);
+        keybd_event(VK_CONTROL, 0, KEYEVENTF_KEYUP, 0);
     }
 
     // Hàm cuộn chuột xuống `times` lần
@@ -89,8 +88,8 @@ public class KeyStop
 
     public static void PressC()
     {
-        keybd_event(VK_C, 0, 0, 0);          // Ấn phím S xuống
-        keybd_event(VK_C, 0, KEYEVENTF_KEYUP, 0); // Nhả phím S
+        keybd_event(VK_C, 0, 0, 0);
+        keybd_event(VK_C, 0, KEYEVENTF_KEYUP, 0); 
     }
 
     public static void PressSTwice()
@@ -98,6 +97,7 @@ public class KeyStop
         for (int i = 0; i < 2; i++)
         {
             keybd_event(VK_S, 0, 0, 0);          // Ấn phím S xuống
+            Thread.Sleep(50); // Chờ 50ms
             keybd_event(VK_S, 0, KEYEVENTF_KEYUP, 0); // Nhả phím S
             Thread.Sleep(300); // Chờ 100ms giữa 2 lần nhấn
         }
@@ -106,8 +106,11 @@ public class KeyStop
     public static void BuyItem()
     {
         LClickFast();
-        while (!Check.isConfirmOn())
+        int waitTime = 0;
+        while (!Check.isConfirmOn() && waitTime <= 150)
         {
+            Thread.Sleep(10);
+            waitTime += 10;
             //Console.WriteLine("waiting confirm");
             if (Check.isConfirmOn())
             {
@@ -118,22 +121,24 @@ public class KeyStop
         }
         if (!Check.isOutOfArtf())
         {
-            ScrollMouseDownMultiple(7);
-            Thread.Sleep(100);
-            SetCursorPos(405, 640);
-            Thread.Sleep(50);
-            LClick();
-
-            while (Check.isConfirmOn())
+            if (Check.isConfirmOn())
             {
-                KeyStop.LClick();
-                if (!Check.isConfirmOn())
+                ScrollMouseDownMultiple(7);
+                Thread.Sleep(100);
+                SetCursorPos(405, 640);
+                Thread.Sleep(50);
+                LClick();
+                while (Check.isConfirmOn())
                 {
-                    break;
+                    KeyStop.LClick();
+                    if (!Check.isConfirmOn())
+                    {
+                        break;
+                    }
+                    Thread.Sleep(5);
                 }
-                Thread.Sleep(5);
-            }
+            }                  
         }    
-        else cUp();
+        else stopAndCtrlUp();
     }
 }

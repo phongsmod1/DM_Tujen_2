@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DM_Tujen_2")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4e9430de42d04eca8efad9066a5c0c29a1de749a")]
 [assembly: System.Reflection.AssemblyProductAttribute("DM_Tujen_2")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DM_Tujen_2")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

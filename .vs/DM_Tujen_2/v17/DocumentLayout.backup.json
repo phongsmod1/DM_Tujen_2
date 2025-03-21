@@ -7,12 +7,28 @@
       "RelativeMoniker": "D:0:0:{5DE8B132-F405-4C44-B11F-629AC050B7A8}|DM_Tujen_2.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5DE8B132-F405-4C44-B11F-629AC050B7A8}|DM_Tujen_2.csproj|d:\\vsrepos\\dm_tujen_2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5DE8B132-F405-4C44-B11F-629AC050B7A8}|DM_Tujen_2.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{5DE8B132-F405-4C44-B11F-629AC050B7A8}|DM_Tujen_2.csproj|d:\\vsrepos\\dm_tujen_2\\keystop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5DE8B132-F405-4C44-B11F-629AC050B7A8}|DM_Tujen_2.csproj|solutionrelative:keystop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5DE8B132-F405-4C44-B11F-629AC050B7A8}|DM_Tujen_2.csproj|d:\\vsrepos\\dm_tujen_2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5DE8B132-F405-4C44-B11F-629AC050B7A8}|DM_Tujen_2.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5DE8B132-F405-4C44-B11F-629AC050B7A8}|DM_Tujen_2.csproj|d:\\vsrepos\\dm_tujen_2\\check.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5DE8B132-F405-4C44-B11F-629AC050B7A8}|DM_Tujen_2.csproj|solutionrelative:check.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5DE8B132-F405-4C44-B11F-629AC050B7A8}|DM_Tujen_2.csproj|D:\\VSrepos\\DM_Tujen_2\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5DE8B132-F405-4C44-B11F-629AC050B7A8}|DM_Tujen_2.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5DE8B132-F405-4C44-B11F-629AC050B7A8}|DM_Tujen_2.csproj|d:\\vsrepos\\dm_tujen_2\\whitelist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5DE8B132-F405-4C44-B11F-629AC050B7A8}|DM_Tujen_2.csproj|solutionrelative:whitelist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5DE8B132-F405-4C44-B11F-629AC050B7A8}|DM_Tujen_2.csproj|d:\\vsrepos\\dm_tujen_2\\whitelist.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{5DE8B132-F405-4C44-B11F-629AC050B7A8}|DM_Tujen_2.csproj|solutionrelative:whitelist.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,11 +38,53 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 6,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "D:\\VSrepos\\DM_Tujen_2\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "D:\\VSrepos\\DM_Tujen_2\\Form1.cs",
+              "RelativeToolTip": "Form1.cs",
+              "ViewState": "AgIAAFkAAAAAAAAAAAAAwFgAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-21T14:07:13.357Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Whitelist.cs",
+              "DocumentMoniker": "D:\\VSrepos\\DM_Tujen_2\\Whitelist.cs",
+              "RelativeDocumentMoniker": "Whitelist.cs",
+              "ToolTip": "D:\\VSrepos\\DM_Tujen_2\\Whitelist.cs",
+              "RelativeToolTip": "Whitelist.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-20T15:01:41.269Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "whitelist.json",
+              "DocumentMoniker": "D:\\VSrepos\\DM_Tujen_2\\whitelist.json",
+              "RelativeDocumentMoniker": "whitelist.json",
+              "ToolTip": "D:\\VSrepos\\DM_Tujen_2\\whitelist.json",
+              "RelativeToolTip": "whitelist.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-03-20T15:01:41.378Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "D:\\VSrepos\\DM_Tujen_2\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
@@ -38,26 +96,39 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "KeyStop.cs",
+              "DocumentMoniker": "D:\\VSrepos\\DM_Tujen_2\\KeyStop.cs",
+              "RelativeDocumentMoniker": "KeyStop.cs",
+              "ToolTip": "D:\\VSrepos\\DM_Tujen_2\\KeyStop.cs",
+              "RelativeToolTip": "KeyStop.cs",
+              "ViewState": "AgIAAEgAAAAAAAAAAAA3wGMAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-21T14:02:45.986Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\VSrepos\\DM_Tujen_2\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "D:\\VSrepos\\DM_Tujen_2\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAD0AAAAAAAAAAAArwFEAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-20T14:28:31.782Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Check.cs",
               "DocumentMoniker": "D:\\VSrepos\\DM_Tujen_2\\Check.cs",
               "RelativeDocumentMoniker": "Check.cs",
               "ToolTip": "D:\\VSrepos\\DM_Tujen_2\\Check.cs",
               "RelativeToolTip": "Check.cs",
-              "ViewState": "AgIAAC8AAAAAAAAAAAAIwEYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAHsAAAAAAAAAAAAUwJMAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-20T14:26:49.575Z",
               "EditorCaption": ""

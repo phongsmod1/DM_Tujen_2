@@ -74,14 +74,14 @@ class Program
 
             if (inventoryCount.Length >= 50)
             {
-                KeyStop.PressSTwice();
+                
                 //Console.WriteLine($"isStashopen: {Check.IsStashOpen()}");
 
                 Point? stashPos = null;
 
                 do
                 {
-                    //Console.WriteLine("Đang tìm stash...");
+                    KeyStop.PressSTwice();
                     stashPos = Check.FindStash();
                     Thread.Sleep(100); // Chờ một chút trước khi thử lại
                 } while (stashPos == null);
@@ -113,10 +113,14 @@ class Program
                 foreach (var pos in inventoryCount)
                 {
                     if (KeyStop.stopRequested) break;
-                    Thread.Sleep(10); // Đợi 100ms giữa các lần click
-                    KeyStop.SetCursorPos(pos.X, pos.Y);
-                    KeyStop.LClickMid();
-                    
+                    if (Check.IsStashOpen())
+                    {
+                        // Đợi 100ms giữa các lần click
+                        KeyStop.SetCursorPos(pos.X, pos.Y);
+                        Thread.Sleep(20);
+                        KeyStop.LClickMid();
+                    }
+                    else break;
                     //Console.WriteLine($"Di chuyển item tại {pos.X}, {pos.Y} vào stash.");
                 }
                 KeyStop.PressSTwice();
@@ -149,7 +153,7 @@ class Program
 
                     //List<string> itemDetails = ClipboardRead.FilterItemInfo2(itemData);
                     Form1.BoxWrite($"{item.ItemName}" +
-                          (item.IsGem ? $" | Level: {item.GemLevel} | Quality: {item.GemQuality}%" : ""));
+                          (item.IsGem ? $" | L: {item.GemLevel} | Q: {item.GemQuality}%" : ""));
 
                     if ((item.ItemClass == "Skill Gems" || item.ItemClass == "Support Gems") &&
                                             item.GemLevel == "21" && item.GemQuality == "20")
@@ -164,7 +168,7 @@ class Program
                     };
                 }
 
-                if (Check.isOutOfCoin()) KeyStop.cUp();
+                if (Check.isOutOfCoin()) KeyStop.stopAndCtrlUp();
 
                 if (!KeyStop.stopRequested)
                 {
