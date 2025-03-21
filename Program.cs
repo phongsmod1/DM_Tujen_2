@@ -78,13 +78,22 @@ class Program
                 //Console.WriteLine($"isStashopen: {Check.IsStashOpen()}");
 
                 Point? stashPos = null;
-
+                int waitTime = 0;
                 do
                 {
                     KeyStop.PressSTwice();
                     stashPos = Check.FindStash();
+                    waitTime += 100;
                     Thread.Sleep(100); // Chờ một chút trước khi thử lại
-                } while (stashPos == null);
+                } while (stashPos == null && waitTime <= 500);
+
+                if (stashPos == null)
+                {
+                    KeyStop.SetCursorPos(632, 173);
+                    Thread.Sleep(100);
+                    KeyStop.LClick();
+                    return;
+                }
 
                 KeyStop.SetCursorPos(stashPos.Value.X, stashPos.Value.Y);
                 Thread.Sleep(50);
@@ -93,7 +102,7 @@ class Program
                 //Console.WriteLine("Đã click vào stash.");
 
                 // Chờ stash mở hoàn toàn
-                int waitTime = 0;
+                waitTime = 0;
                 while (!Check.IsStashOpen() && waitTime < 2000) // Chờ tối đa 5 giây
                 {
                     Thread.Sleep(250);
@@ -152,18 +161,26 @@ class Program
                     }
 
                     //List<string> itemDetails = ClipboardRead.FilterItemInfo2(itemData);
-                    Form1.BoxWrite($"{item.ItemName}" +
-                          (item.IsGem ? $" | L: {item.GemLevel} | Q: {item.GemQuality}%" : ""));
+                    //Form1.BoxWrite($"{item.ItemName}" +
+                     //     (item.IsGem ? $" | L: {item.GemLevel} | Q: {item.GemQuality}%" : ""));
+
+                    string itemInfo = $"{item.ItemName}" +
+                          (item.IsGem ? $" | L: {item.GemLevel} | Q: {item.GemQuality}%" : "");
+
+                    Form1.BoxWrite(itemInfo);
+                    Logger.WriteLog(itemInfo);
 
                     if ((item.ItemClass == "Skill Gems" || item.ItemClass == "Support Gems") &&
                                             item.GemLevel == "21" && item.GemQuality == "20")
                     {
                         //Console.WriteLine("Gem 21/20, mua ngay!");
+                        Logger.WriteLog(" -> BUY");
                         KeyStop.BuyItem();
                     }
                     else if (Check.IsItemWhitelisted(item.ItemName))
                     {
                         //Console.WriteLine("Gem trong whitelist, mua ngay!");
+                        Logger.WriteLog(" -> BUY");
                         KeyStop.BuyItem();
                     };
                 }
@@ -173,6 +190,7 @@ class Program
                 if (!KeyStop.stopRequested)
                 {
                     Form1.BoxWrite("--------------------REFRESH-------------------");
+                    Logger.WriteLog("--------------------REFRESH-------------------");
                     KeyStop.SetCursorPos(630, 645);
                     Thread.Sleep(20);
                     KeyStop.LClickMid();

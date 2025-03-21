@@ -97,7 +97,7 @@ public class KeyStop
         for (int i = 0; i < 2; i++)
         {
             keybd_event(VK_S, 0, 0, 0);          // Ấn phím S xuống
-            Thread.Sleep(50); // Chờ 50ms
+            Thread.Sleep(100); // Chờ 50ms
             keybd_event(VK_S, 0, KEYEVENTF_KEYUP, 0); // Nhả phím S
             Thread.Sleep(300); // Chờ 100ms giữa 2 lần nhấn
         }
