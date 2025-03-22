@@ -127,7 +127,7 @@ public class KeyStop
             {
                 ScrollMouseDownMultiple(7);
                 Thread.Sleep(100);
-                SetCursorPos(405, 640);
+                SetCursorPos(375, 638);
                 Thread.Sleep(50);
                 LClick();
                 while (Check.isConfirmOn())
