@@ -92,7 +92,8 @@ class Program
                     KeyStop.SetCursorPos(632, 173);
                     Thread.Sleep(100);
                     KeyStop.LClick();
-                    return;
+                    Thread.Sleep(500);
+                    stashPos = Check.FindStash();
                 }
 
                 KeyStop.SetCursorPos(stashPos.Value.X, stashPos.Value.Y);
@@ -110,11 +111,11 @@ class Program
                     //Console.WriteLine("Đang chờ stash mở...");
                 }
 
-                if (!Check.IsStashOpen())
-                {
+                //if (!Check.IsStashOpen())
+                //{
                     //Console.WriteLine("Stash không mở được! Thử lại lần sau.");
-                    return;
-                }
+                //    return;
+                //}
 
                 //Console.WriteLine("Stash đã mở!");
 

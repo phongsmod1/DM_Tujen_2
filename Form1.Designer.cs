@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             buttonQuay = new Button();
             listBox1 = new ListBox();
@@ -35,6 +36,8 @@
             buttonAdd = new Button();
             label1 = new Label();
             listBox2 = new ListBox();
+            timer1 = new System.Windows.Forms.Timer(components);
+            label2 = new Label();
             SuspendLayout();
             // 
             // buttonQuay
@@ -50,20 +53,20 @@
             // 
             // listBox1
             // 
-            listBox1.BackColor = SystemColors.MenuBar;
+            listBox1.BackColor = SystemColors.Menu;
             listBox1.FormattingEnabled = true;
             listBox1.ItemHeight = 15;
             listBox1.Location = new Point(29, 129);
             listBox1.Margin = new Padding(4, 3, 4, 3);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(181, 244);
+            listBox1.Size = new Size(134, 244);
             listBox1.TabIndex = 1;
             listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             listBox1.KeyDown += listBox1_KeyDown;
             // 
             // textBox1
             // 
-            textBox1.BackColor = SystemColors.MenuBar;
+            textBox1.BackColor = SystemColors.Menu;
             textBox1.Location = new Point(29, 99);
             textBox1.Margin = new Padding(4, 3, 4, 3);
             textBox1.Name = "textBox1";
@@ -107,12 +110,28 @@
             listBox2.TabIndex = 5;
             listBox2.SelectedIndexChanged += listBox2_SelectedIndexChanged;
             // 
+            // timer1
+            // 
+            timer1.Tick += timer1_Tick;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.ForeColor = SystemColors.Control;
+            label2.Location = new Point(173, 358);
+            label2.Name = "label2";
+            label2.Size = new Size(19, 15);
+            label2.TabIndex = 6;
+            label2.Text = "🕛";
+            label2.Click += label2_Click_1;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveBorder;
             ClientSize = new Size(240, 400);
+            Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(buttonAdd);
             Controls.Add(textBox1);
@@ -140,6 +159,8 @@
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Label label1;
         private ListBox listBox2;
+        private Label label2;
+        public System.Windows.Forms.Timer timer1;
     }
 }
 

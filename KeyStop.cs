@@ -13,6 +13,7 @@ public class KeyStop
     private const uint MOUSEEVENTF_LEFTUP = 0x0004;
     private const byte VK_C = 0x43; // Mã phím 'C'
     private const uint MOUSEEVENTF_WHEEL = 0x0800;
+    private Form1 mainForm;
 
     [DllImport("user32.dll")]
     public static extern bool RegisterHotKey(IntPtr hWnd, int id, uint fsModifiers, uint vk);
@@ -44,6 +45,7 @@ public class KeyStop
     public static void stopAndCtrlUp()
     {
         stopRequested = true;
+        Form1.Instance.timer1.Stop();
         keybd_event(VK_CONTROL, 0, KEYEVENTF_KEYUP, 0);
     }
 

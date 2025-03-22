@@ -13,6 +13,7 @@ using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
+using System.Timers;
 
 namespace DM_Tujen
 {
@@ -22,12 +23,18 @@ namespace DM_Tujen
 
         public static Thread mainThread;
         public static Thread hotkeyThread;
+        //public System.Windows.Forms.Timer timer1;
+        private DateTime startTime;
 
         HashSet<string> items = Whitelist.list;
         public Form1()
         {
             InitializeComponent();
             Instance = this; // Lưu instance của Form1 để gọi từ static method
+
+            // Tạo Timer
+            timer1.Interval = 1000; // Cập nhật mỗi giây
+            timer1.Tick += timer1_Tick;
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -59,6 +66,9 @@ namespace DM_Tujen
             hotkeyThread = new Thread(KeyStop.HotKeyListener);
             hotkeyThread.IsBackground = true;
             hotkeyThread.Start(); // Chạy luồng lắng nghe phím V
+
+            startTime = DateTime.Now; // Lưu thời gian bắt đầu
+            timer1.Start(); // Bắt đầu bộ đếm thời gian
 
             // Tạo luồng chính
             mainThread = new Thread(Program.MainLoop);
@@ -119,6 +129,17 @@ namespace DM_Tujen
                 Instance.listBox2.Items.Add(message);
                 Instance.listBox2.TopIndex = Instance.listBox2.Items.Count - 1;
             }
+        }
+
+        public void timer1_Tick(object sender, EventArgs e)
+        {
+            TimeSpan elapsed = DateTime.Now - startTime;
+            label2.Text = $"🕛 {elapsed.Minutes:D2}:{elapsed.Seconds:D2}";
+        }
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
