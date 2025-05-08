@@ -45,7 +45,7 @@ public class KeyStop
     public static void stopAndCtrlUp()
     {
         stopRequested = true;
-        Form1.Instance.timer1.Stop();
+        //Form1.Instance.timer1.Stop();
         keybd_event(VK_CONTROL, 0, KEYEVENTF_KEYUP, 0);
     }
 
