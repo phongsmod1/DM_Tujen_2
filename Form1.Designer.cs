@@ -38,6 +38,10 @@
             listBox2 = new ListBox();
             timer1 = new System.Windows.Forms.Timer(components);
             label2 = new Label();
+            checkBox1 = new CheckBox();
+            trackBar1 = new TrackBar();
+            label3 = new Label();
+            ((System.ComponentModel.ISupportInitialize)trackBar1).BeginInit();
             SuspendLayout();
             // 
             // buttonQuay
@@ -47,7 +51,7 @@
             buttonQuay.Name = "buttonQuay";
             buttonQuay.Size = new Size(136, 51);
             buttonQuay.TabIndex = 0;
-            buttonQuay.Text = "Quay Tuẹn";
+            buttonQuay.Text = "Bắt Đầu";
             buttonQuay.UseVisualStyleBackColor = true;
             buttonQuay.Click += button1_Click;
             // 
@@ -56,7 +60,7 @@
             listBox1.BackColor = SystemColors.Menu;
             listBox1.FormattingEnabled = true;
             listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(29, 129);
+            listBox1.Location = new Point(13, 128);
             listBox1.Margin = new Padding(4, 3, 4, 3);
             listBox1.Name = "listBox1";
             listBox1.Size = new Size(134, 244);
@@ -67,7 +71,7 @@
             // textBox1
             // 
             textBox1.BackColor = SystemColors.Menu;
-            textBox1.Location = new Point(29, 99);
+            textBox1.Location = new Point(13, 99);
             textBox1.Margin = new Padding(4, 3, 4, 3);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(134, 23);
@@ -76,7 +80,7 @@
             // 
             // buttonAdd
             // 
-            buttonAdd.Location = new Point(170, 99);
+            buttonAdd.Location = new Point(155, 99);
             buttonAdd.Margin = new Padding(4, 3, 4, 3);
             buttonAdd.Name = "buttonAdd";
             buttonAdd.Size = new Size(41, 23);
@@ -125,12 +129,51 @@
             label2.Text = "🕛";
             label2.Click += label2_Click_1;
             // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Checked = true;
+            checkBox1.CheckState = CheckState.Checked;
+            checkBox1.Location = new Point(154, 128);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(82, 19);
+            checkBox1.TabIndex = 7;
+            checkBox1.Text = "gem 21/20";
+            checkBox1.UseVisualStyleBackColor = true;
+            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
+            // 
+            // trackBar1
+            // 
+            trackBar1.AutoSize = false;
+            trackBar1.LargeChange = 1;
+            trackBar1.Location = new Point(150, 321);
+            trackBar1.Maximum = 5;
+            trackBar1.Minimum = 1;
+            trackBar1.Name = "trackBar1";
+            trackBar1.Size = new Size(82, 34);
+            trackBar1.TabIndex = 8;
+            trackBar1.Value = 1;
+            trackBar1.Scroll += trackBar1_Scroll;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(154, 303);
+            label3.Name = "label3";
+            label3.Size = new Size(51, 15);
+            label3.TabIndex = 9;
+            label3.Text = "Speed: 1";
+            label3.Click += label3_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveBorder;
             ClientSize = new Size(240, 400);
+            Controls.Add(label3);
+            Controls.Add(trackBar1);
+            Controls.Add(checkBox1);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(buttonAdd);
@@ -146,6 +189,7 @@
             Text = "DM Tujen";
             TopMost = true;
             Load += Form1_Load;
+            ((System.ComponentModel.ISupportInitialize)trackBar1).EndInit();
             ResumeLayout(false);
             PerformLayout();
 
@@ -158,9 +202,12 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Label label1;
-        private ListBox listBox2;
-        private Label label2;
         public System.Windows.Forms.Timer timer1;
+        public CheckBox checkBox1;
+        public Label label2;
+        public ListBox listBox2;
+        public TrackBar trackBar1;
+        private Label label3;
     }
 }
 

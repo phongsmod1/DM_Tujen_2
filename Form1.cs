@@ -31,7 +31,7 @@ namespace DM_Tujen
         {
             InitializeComponent();
             Instance = this; // Lưu instance của Form1 để gọi từ static method
-
+            TrackBarValue = trackBar1.Value; // Gán giá trị ban đầu
             // Tạo Timer
             timer1.Interval = 1000; // Cập nhật mỗi giây
             timer1.Tick += timer1_Tick;
@@ -137,7 +137,25 @@ namespace DM_Tujen
             label2.Text = $"🕛 {elapsed.Minutes:D2}:{elapsed.Seconds:D2}";
         }
 
-        private void label2_Click_1(object sender, EventArgs e)
+        public void label2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        public void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
+        public int TrackBarValue { get; private set; }
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            label3.Text = $"Speed: {trackBar1.Value}";
+            TrackBarValue = trackBar1.Value;
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }

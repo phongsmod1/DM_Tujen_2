@@ -10,13 +10,9 @@ using DM_Tujen;
 
 class Program
 {
-    //[System.Runtime.InteropServices.DllImport("kernel32.dll")]
-    //private static extern bool AllocConsole();
 
     static void Main()
     {
-        //AllocConsole(); // 🔥 Mở cửa sổ console
-        //Debug.WriteLine("Debug Console Started!"); // Xuất log ra console
 
         ApplicationConfiguration.Initialize();
         Application.Run(new Form1());       
@@ -37,11 +33,12 @@ class Program
 
     public static void MainLoop()
     {
+        int speed = Form1.Instance.TrackBarValue;
         while (!KeyStop.stopRequested)
         {
             KeyStop.keybd_event(KeyStop.VK_CONTROL, 0, 0, 0);
 
-            if (!Check.IsTujenOpen())
+            if (!Check.IsOpen("DM_Tujen_2.tujenface.png")) // is tujen open
             {
                 KeyStop.PressSTwice();
                 // Tìm Tujen cho đến khi có vị trí hợp lệ
@@ -49,20 +46,20 @@ class Program
 
                 do
                 {
-                    TujenPos = Check.FindTujen();
+                    TujenPos = Check.FindImage("DM_Tujen_2.tujenname.png");
                     Thread.Sleep(200); // Tránh spam CPU
                 } while (TujenPos == null);
 
                 // Di chuyển đến Tujen và click
                 KeyStop.SetCursorPos(TujenPos.Value.X, TujenPos.Value.Y);
                 Thread.Sleep(50);
-                KeyStop.LClick();
+                KeyStop.LClick(100);
                 KeyStop.SetCursorPos(TujenPos.Value.X-500, TujenPos.Value.Y-500);
                 //KeyStop.SetCursorPos(0, 0);
 
                 // Chờ Tujen mở với thời gian tối đa 5 giây
                 int waitTime = 0;
-                while (!Check.IsTujenOpen() && waitTime < 2000)
+                while (!Check.IsOpen("DM_Tujen_2.tujenface.png") && waitTime < 2000)
                 {
                     Thread.Sleep(250);
                     waitTime += 250;
@@ -82,7 +79,7 @@ class Program
                 do
                 {
                     KeyStop.PressSTwice();
-                    stashPos = Check.FindStash();
+                    stashPos = Check.FindImage("DM_Tujen_2.stash.png");
                     waitTime += 100;
                     Thread.Sleep(100); // Chờ một chút trước khi thử lại
                 } while (stashPos == null && waitTime <= 500);
@@ -91,31 +88,25 @@ class Program
                 {
                     KeyStop.SetCursorPos(632, 173);
                     Thread.Sleep(100);
-                    KeyStop.LClick();
+                    KeyStop.LClick(100);
                     Thread.Sleep(500);
-                    stashPos = Check.FindStash();
+                    stashPos = Check.FindImage("DM_Tujen_2.stash.png");
                 }
 
                 KeyStop.SetCursorPos(stashPos.Value.X, stashPos.Value.Y);
                 Thread.Sleep(50);
-                KeyStop.LClick();
+                KeyStop.LClick(100);
                 KeyStop.SetCursorPos(stashPos.Value.X-500, stashPos.Value.Y-500);
                 //Console.WriteLine("Đã click vào stash.");
 
                 // Chờ stash mở hoàn toàn
                 waitTime = 0;
-                while (!Check.IsStashOpen() && waitTime < 2000) // Chờ tối đa 5 giây
+                while (!Check.IsOpen("DM_Tujen_2.stashface.png") && waitTime < 2000) // Chờ tối đa 5 giây
                 {
                     Thread.Sleep(250);
                     waitTime += 250;
                     //Console.WriteLine("Đang chờ stash mở...");
                 }
-
-                //if (!Check.IsStashOpen())
-                //{
-                    //Console.WriteLine("Stash không mở được! Thử lại lần sau.");
-                //    return;
-                //}
 
                 //Console.WriteLine("Stash đã mở!");
 
@@ -123,12 +114,12 @@ class Program
                 foreach (var pos in inventoryCount)
                 {
                     if (KeyStop.stopRequested) break;
-                    if (Check.IsStashOpen())
+                    if (Check.IsOpen("DM_Tujen_2.stashface.png"))
                     {
                         // Đợi 100ms giữa các lần click
                         KeyStop.SetCursorPos(pos.X, pos.Y);
                         Thread.Sleep(20);
-                        KeyStop.LClickMid();
+                        KeyStop.LClick(50);
                     }
                     else break;
                     //Console.WriteLine($"Di chuyển item tại {pos.X}, {pos.Y} vào stash.");
@@ -136,7 +127,7 @@ class Program
                 KeyStop.PressSTwice();
             }
 
-            if (Check.IsTujenOpen())
+            if (Check.IsOpen("DM_Tujen_2.tujenface.png"))
             {
                 //Console.WriteLine("bat dau kiem tra item tujen");
                 List<Point> tujenItemCount = Check.TujenItemPos();
@@ -147,9 +138,9 @@ class Program
                 {
                     if (KeyStop.stopRequested) break;
                     KeyStop.SetCursorPos(pos.X, pos.Y);
-                    Thread.Sleep(30);
+                    Thread.Sleep(30 * speed);
                     KeyStop.PressC();
-                    Thread.Sleep(25);
+                    Thread.Sleep(25 * speed);
 
                     string itemData = ClipboardRead.GetClipboardTextUltraFast();
 
@@ -161,10 +152,6 @@ class Program
                         ClipboardRead.ExtractGemDetails(itemData, item);
                     }
 
-                    //List<string> itemDetails = ClipboardRead.FilterItemInfo2(itemData);
-                    //Form1.BoxWrite($"{item.ItemName}" +
-                     //     (item.IsGem ? $" | L: {item.GemLevel} | Q: {item.GemQuality}%" : ""));
-
                     string itemInfo = $"{item.ItemName}" +
                           (item.IsGem ? $" | L: {item.GemLevel} | Q: {item.GemQuality}%" : "");
 
@@ -172,7 +159,7 @@ class Program
                     Logger.WriteLog(itemInfo);
 
                     if ((item.ItemClass == "Skill Gems" || item.ItemClass == "Support Gems") &&
-                                            item.GemLevel == "21" && item.GemQuality == "20")
+                                            item.GemLevel == "21" && item.GemQuality == "20" && Form1.Instance.checkBox1.Checked)
                     {
                         //Console.WriteLine("Gem 21/20, mua ngay!");
                         Logger.WriteLog(" -> BUY");
@@ -193,8 +180,9 @@ class Program
                     Form1.BoxWrite("--------------------REFRESH-------------------");
                     Logger.WriteLog("--------------------REFRESH-------------------");
                     KeyStop.SetCursorPos(630, 645);
-                    Thread.Sleep(20);
-                    KeyStop.LClickMid();
+                    Thread.Sleep(20 * speed);
+                    KeyStop.LClick(50);
+                    Thread.Sleep(20 * speed);
                 }
             }
             

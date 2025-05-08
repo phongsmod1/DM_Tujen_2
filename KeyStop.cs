@@ -45,7 +45,8 @@ public class KeyStop
     public static void stopAndCtrlUp()
     {
         stopRequested = true;
-        //Form1.Instance.timer1.Stop();
+        Form1.Instance.timer1.Stop();
+        Logger.WriteLog($" ---------- PRESS V STOP ---------- TIME RUNNING : {Form1.Instance.label2.Text} ----------");
         keybd_event(VK_CONTROL, 0, KEYEVENTF_KEYUP, 0);
     }
 
@@ -64,28 +65,12 @@ public class KeyStop
         mouse_event(MOUSEEVENTF_WHEEL, 0, 0, (uint)-amount, UIntPtr.Zero);
     }
 
-    public static void LClick()
+    public static void LClick(int milSec)
     {
         mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, UIntPtr.Zero);
-        Thread.Sleep(100);
+        Thread.Sleep(milSec);
         mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, UIntPtr.Zero);
-        Thread.Sleep(100);
-    }
-
-    public static void LClickMid()
-    {
-        mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, UIntPtr.Zero);
-        Thread.Sleep(50);
-        mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, UIntPtr.Zero);
-        Thread.Sleep(50);
-    }
-
-    public static void LClickFast()
-    {
-        mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, UIntPtr.Zero);
-        Thread.Sleep(10);
-        mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, UIntPtr.Zero);
-        Thread.Sleep(10);
+        Thread.Sleep(milSec);
     }
 
     public static void PressC()
@@ -107,7 +92,7 @@ public class KeyStop
 
     public static void BuyItem()
     {
-        LClickFast();
+        LClick(10);
         int waitTime = 0;
         while (!Check.isConfirmOn() && waitTime <= 150)
         {
@@ -129,10 +114,10 @@ public class KeyStop
                 Thread.Sleep(100);
                 SetCursorPos(375, 638);
                 Thread.Sleep(50);
-                LClick();
+                LClick(100);
                 while (Check.isConfirmOn())
                 {
-                    KeyStop.LClick();
+                    KeyStop.LClick(100);
                     if (!Check.isConfirmOn())
                     {
                         break;

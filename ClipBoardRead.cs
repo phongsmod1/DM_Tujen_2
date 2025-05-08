@@ -39,46 +39,34 @@ public class ClipboardRead
         return result;
     }
 
-    public static List<string> FilterItemInfo2(string itemData)
-    {
-        List<string> itemInfo = new List<string>();
-
-        string itemClass = GetMatch(itemData, @"Item Class:\s*(.+)");
-        string rarity = GetMatch(itemData, @"Rarity:\s*(.+)");
-        string itemName;
-
-        if (itemClass.Contains("Skill Gems") || itemClass.Contains("Support Gems"))
-        {
-            itemName = GetMatch(itemData, @"Rarity:\s*.+\r?\n(.+)");
-            string level = GetMatch(itemData, @"Level:\s*(\d+)");
-            string quality = GetMatch(itemData, @"Quality:\s*\+?(\d+)%");
-
-            itemInfo.Add($"{itemName}");
-            itemInfo.Add($"{level}");
-            itemInfo.Add($"{quality}");
-        }
-        else
-        {
-            itemName = GetMatch(itemData, @"Rarity:\s*.+\r?\n(.+)");
-            itemInfo.Add($"{itemName}");
-        }
-
-        return itemInfo;
-    }
-
-    // ✅ Lọc Item Class & Item Name
     public static ItemDetails ExtractBasicItemDetails(string text)
     {
         string[] lines = text.Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries);
 
         string itemClass = lines.Length > 0 ? lines[0].Replace("Item Class: ", "").Trim() : "N/A Class";
-        string itemName = lines.Length > 2 ? lines[2].Trim() : "N/A Name";
+        string rarity = lines.Length > 1 ? lines[1].Replace("Rarity: ", "").Trim() : "N/A Rarity";
+
+        string itemName = "N/A Name";
+        string itemSubName = "";
+
+        if ((rarity == "Rare" || rarity == "Unique") && lines.Length > 3)
+        {
+            itemName = lines[3].Trim();       // Dòng 4
+            itemSubName = lines[2].Trim();    // Dòng 3
+        }
+        else if (lines.Length > 2)
+        {
+            itemName = lines[2].Trim();       // Dòng 3
+        }
+
         bool isGem = (itemClass == "Skill Gems" || itemClass == "Support Gems");
 
         return new ItemDetails
         {
             ItemClass = itemClass,
+            Rarity = rarity,
             ItemName = itemName,
+            ItemSubName = itemSubName,
             IsGem = isGem
         };
     }
@@ -97,16 +85,6 @@ public class ClipboardRead
         return match.Success ? match.Groups[1].Value : defaultValue;
     }
 
-    static string GetMatch(string text, string pattern, bool firstLineOnly = false)
-    {
-        if (firstLineOnly)
-        {
-            return text.Split('\n').FirstOrDefault()?.Trim() ?? "Unknown";
-        }
-
-        Match match = Regex.Match(text, pattern, RegexOptions.Multiline);
-        return match.Success ? match.Groups[1].Value.Trim() : "Unknown";
-    }
 }
 
 // ✅ Class lưu trữ dữ liệu item
@@ -117,4 +95,6 @@ public class ItemDetails
     public string GemLevel { get; set; }
     public string GemQuality { get; set; }
     public bool IsGem { get; set; }
+    public string Rarity { get; set; }
+    public string ItemSubName { get; set; }
 }
